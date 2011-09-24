@@ -25,7 +25,14 @@
  */
 + (UIImage *)tabBarStyledOverlaySelectedImageWithSize:(CGSize)size;
 
+/**
+ @return new UIImage with white color where self is transparent and black where its not
+ */
+@property (nonatomic, readonly) UIImage *tabBarStyledImageMask;
+
 @end
+
+
 
 /**
  UIImage (UITabBarStyle_Private) implementation
@@ -77,6 +84,36 @@
     UIGraphicsEndImageContext();
     
     return finalGradientImage;
+}
+
+- (UIImage *)tabBarStyledImageMask {
+    // create image rect from selfs size
+    CGRect imageRect = CGRectMake(0.0f, 0.0f, self.size.width, self.size.height);
+    
+    // begin new image context
+    UIGraphicsBeginImageContextWithOptions(self.size, NO, [UIScreen mainScreen].scale);
+    
+    // get and setup current context
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextTranslateCTM(context, 0.0f, self.size.height);
+    CGContextScaleCTM(context, 1.0f, -1.0f);
+    
+    // fill everything white white
+    [[UIColor whiteColor] setFill];
+    UIRectFill(imageRect);
+    
+    // clip to self as mask
+    CGContextClipToMask(context, imageRect, self.CGImage);
+    
+    // fill clipped mask with black
+    [[UIColor blackColor] setFill];
+    UIRectFill(imageRect);
+    
+    // get image from context
+    UIImage* finalImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return finalImage;
 }
 
 @end
