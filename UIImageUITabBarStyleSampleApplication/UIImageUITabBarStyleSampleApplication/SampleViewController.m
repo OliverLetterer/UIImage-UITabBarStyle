@@ -7,7 +7,7 @@
 //
 
 #import "SampleViewController.h"
-
+#import "UIImage+UITabBarStyle.h"
 
 @implementation SampleViewController
 
@@ -21,6 +21,24 @@
 }
 
 #pragma mark - View lifecycle
+
+- (void)loadView {
+    [super loadView];
+    
+    UIImage *tabBarImage = [UIImage imageNamed:@"145-persondot.png"];
+    
+    UIImageView *normalImageView = [[UIImageView alloc] initWithImage:tabBarImage];
+    normalImageView.center = CGPointMake(30.0f, CGRectGetMidY(self.view.bounds));
+    [self.view addSubview:normalImageView];
+    
+    UIImageView *unselectedImageView = [[UIImageView alloc] initWithImage:tabBarImage.unselectedTabBarStyledImage];
+    unselectedImageView.center = CGPointMake(130.0f, CGRectGetMidY(self.view.bounds));
+    [self.view addSubview:unselectedImageView];
+    
+    UIImageView *selectedImageView = [[UIImageView alloc] initWithImage:tabBarImage.selectedTabBarStyledImage];
+    selectedImageView.center = CGPointMake(230.0f, CGRectGetMidY(self.view.bounds));
+    [self.view addSubview:selectedImageView];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
