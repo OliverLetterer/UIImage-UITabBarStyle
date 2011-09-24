@@ -30,6 +30,13 @@
  */
 @property (nonatomic, readonly) UIImage *tabBarStyledImageMask;
 
+/**
+ @return new UIImage that comes in UITabBar style
+ @param selected if YES, the returned image will be selected, if NO then returned image will not be selected
+ @abstract gets an overlay image based on selcted state, then draws this overlay image with the tabBarStyledImageMask from self
+ */
+- (UIImage *)tabbarStyledImageWithSelectedState:(BOOL)selected;
+
 @end
 
 
@@ -116,6 +123,38 @@
     return finalImage;
 }
 
+- (UIImage *)tabbarStyledImageWithSelectedState:(BOOL)selected {
+    UIImage *overlayImage = nil;
+    
+    if (selected) {
+        overlayImage = [UIImage tabBarStyledOverlaySelectedImageWithSize:self.size];
+    } else {
+        overlayImage = [UIImage tabBarStyledOverlayImageWithSize:self.size];
+    }
+    
+    // get our UIImage mask
+    UIImage *imageMask = self.tabBarStyledImageMask;
+    
+    // create CGImageRef mask from our tabBarStyledImageMask
+    CGImageRef imageMaskRef = CGImageMaskCreate(CGImageGetWidth(imageMask.CGImage),
+                                                CGImageGetHeight(imageMask.CGImage),
+                                                CGImageGetBitsPerComponent(imageMask.CGImage),
+                                                CGImageGetBitsPerPixel(imageMask.CGImage),
+                                                CGImageGetBytesPerRow(imageMask.CGImage),
+                                                CGImageGetDataProvider(imageMask.CGImage), NULL, YES);
+    
+    // create a new image that uses the content of overlayImage where imageMask is black
+    CGImageRef tabBarImageRef = CGImageCreateWithMask(overlayImage.CGImage, imageMaskRef);
+    
+    UIImage *tabBarImage = [UIImage imageWithCGImage:tabBarImageRef scale:self.scale orientation:self.imageOrientation];
+    
+    // cleanup
+    CGImageRelease(imageMaskRef);
+    CGImageRelease(tabBarImageRef);
+    
+    return tabBarImage;
+}
+
 @end
 
 
@@ -123,5 +162,13 @@
  UIImage (UITabBarStyle) implementation
  */
 @implementation UIImage (UITabBarStyle)
+
+- (UIImage *)unselectedTabBarStyledImage {
+    return [self tabbarStyledImageWithSelectedState:NO];
+}
+
+- (UIImage *)selectedTabBarStyledImage {
+    return [self tabbarStyledImageWithSelectedState:YES];
+}
 
 @end

@@ -10,4 +10,7 @@
 
 @interface UIImage (UITabBarStyle)
 
+@property (nonatomic, readonly) UIImage *unselectedTabBarStyledImage;
+@property (nonatomic, readonly) UIImage *selectedTabBarStyledImage;
+
 @end
