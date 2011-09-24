@@ -16,6 +16,8 @@
 		A778A591142E5CD4004112C9 /* UIImage+UITabBarStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = A778A590142E5CD4004112C9 /* UIImage+UITabBarStyle.m */; };
 		A778A593142E5E25004112C9 /* 145-persondot.png in Resources */ = {isa = PBXBuildFile; fileRef = A778A592142E5E25004112C9 /* 145-persondot.png */; };
 		A778A596142E5E3F004112C9 /* SampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A778A595142E5E3F004112C9 /* SampleViewController.m */; };
+		A778A5AA142E601C004112C9 /* UITabBarItemGradient.png in Resources */ = {isa = PBXBuildFile; fileRef = A778A5A8142E601C004112C9 /* UITabBarItemGradient.png */; };
+		A778A5AB142E601C004112C9 /* UITabBarItemGradient@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A778A5A9142E601C004112C9 /* UITabBarItemGradient@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		A778A592142E5E25004112C9 /* 145-persondot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "145-persondot.png"; sourceTree = "<group>"; };
 		A778A594142E5E3F004112C9 /* SampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleViewController.h; sourceTree = "<group>"; };
 		A778A595142E5E3F004112C9 /* SampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleViewController.m; sourceTree = "<group>"; };
+		A778A5A8142E601C004112C9 /* UITabBarItemGradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UITabBarItemGradient.png; sourceTree = "<group>"; };
+		A778A5A9142E601C004112C9 /* UITabBarItemGradient@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UITabBarItemGradient@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,8 @@
 		A778A58E142E5CBB004112C9 /* UIImage+UITabBarStyle */ = {
 			isa = PBXGroup;
 			children = (
+				A778A5A8142E601C004112C9 /* UITabBarItemGradient.png */,
+				A778A5A9142E601C004112C9 /* UITabBarItemGradient@2x.png */,
 				A778A58F142E5CD4004112C9 /* UIImage+UITabBarStyle.h */,
 				A778A590142E5CD4004112C9 /* UIImage+UITabBarStyle.m */,
 			);
@@ -165,6 +171,8 @@
 			files = (
 				A778A582142E5C4E004112C9 /* InfoPlist.strings in Resources */,
 				A778A593142E5E25004112C9 /* 145-persondot.png in Resources */,
+				A778A5AA142E601C004112C9 /* UITabBarItemGradient.png in Resources */,
+				A778A5AB142E601C004112C9 /* UITabBarItemGradient@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
