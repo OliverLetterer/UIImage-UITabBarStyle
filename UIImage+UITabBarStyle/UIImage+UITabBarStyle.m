@@ -33,7 +33,7 @@
 /**
  @return new UIImage that comes in UITabBar style
  @param selected if YES, the returned image will be selected, if NO then returned image will not be selected
- @abstract gets an overlay image based on selcted state, then draws this overlay image with the tabBarStyledImageMask from self
+ @abstract gets an overlay image based on selcted state, then draws this overlay image with the tabBarStyledImageMask from self and adds shadow
  */
 - (UIImage *)tabbarStyledImageWithSelectedState:(BOOL)selected;
 
@@ -69,7 +69,7 @@
     CGGradientRelease(colorGradient);
     
     // get final image
-    UIImage* finalBackgroundImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIImage *finalBackgroundImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
     return finalBackgroundImage;
@@ -87,7 +87,7 @@
     [gradientImage drawInRect:centeredFrame];
     
     // get image from context
-    UIImage* finalGradientImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIImage *finalGradientImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
     return finalGradientImage;
@@ -117,20 +117,14 @@
     UIRectFill(imageRect);
     
     // get image from context
-    UIImage* finalImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIImage *finalImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
     return finalImage;
 }
 
 - (UIImage *)tabbarStyledImageWithSelectedState:(BOOL)selected {
-    UIImage *overlayImage = nil;
-    
-    if (selected) {
-        overlayImage = [UIImage tabBarStyledOverlaySelectedImageWithSize:self.size];
-    } else {
-        overlayImage = [UIImage tabBarStyledOverlayImageWithSize:self.size];
-    }
+    UIImage *overlayImage = selected ? [UIImage tabBarStyledOverlaySelectedImageWithSize:self.size] : [UIImage tabBarStyledOverlayImageWithSize:self.size];
     
     // get our UIImage mask
     UIImage *imageMask = self.tabBarStyledImageMask;
@@ -146,13 +140,29 @@
     // create a new image that uses the content of overlayImage where imageMask is black
     CGImageRef tabBarImageRef = CGImageCreateWithMask(overlayImage.CGImage, imageMaskRef);
     
-    UIImage *tabBarImage = [UIImage imageWithCGImage:tabBarImageRef scale:self.scale orientation:self.imageOrientation];
+    UIImage *unshadowedTabBarImage = [UIImage imageWithCGImage:tabBarImageRef scale:self.scale orientation:self.imageOrientation];
     
     // cleanup
     CGImageRelease(imageMaskRef);
     CGImageRelease(tabBarImageRef);
     
-    return tabBarImage;
+    // begin new image context
+    UIGraphicsBeginImageContextWithOptions(self.size, NO, [UIScreen mainScreen].scale);
+    
+    // get current context
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    // draw tabBarImage with shadow
+    CGSize shadowSize = selected ? CGSizeMake(0.0f, 1.0f) : CGSizeMake(0.0f, -0.5f);
+    CGFloat shadowBlur = 2.0f;
+    CGContextSetShadow(context, shadowSize, shadowBlur);
+    [unshadowedTabBarImage drawInRect:CGContextGetClipBoundingBox(context)];
+    
+    UIImage *tabBarStyledImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return tabBarStyledImage;
 }
 
 @end
