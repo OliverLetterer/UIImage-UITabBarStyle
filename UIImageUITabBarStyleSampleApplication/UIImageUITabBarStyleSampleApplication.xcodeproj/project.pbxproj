@@ -13,6 +13,7 @@
 		A778A582142E5C4E004112C9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A778A580142E5C4E004112C9 /* InfoPlist.strings */; };
 		A778A584142E5C4E004112C9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A778A583142E5C4E004112C9 /* main.m */; };
 		A778A588142E5C4E004112C9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A778A587142E5C4E004112C9 /* AppDelegate.m */; };
+		A778A591142E5CD4004112C9 /* UIImage+UITabBarStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = A778A590142E5CD4004112C9 /* UIImage+UITabBarStyle.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		A778A585142E5C4E004112C9 /* UIImageUITabBarStyleSampleApplication-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageUITabBarStyleSampleApplication-Prefix.pch"; sourceTree = "<group>"; };
 		A778A586142E5C4E004112C9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A778A587142E5C4E004112C9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A778A58F142E5CD4004112C9 /* UIImage+UITabBarStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+UITabBarStyle.h"; sourceTree = "<group>"; };
+		A778A590142E5CD4004112C9 /* UIImage+UITabBarStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+UITabBarStyle.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +48,7 @@
 		A778A568142E5C4E004112C9 = {
 			isa = PBXGroup;
 			children = (
+				A778A58E142E5CBB004112C9 /* UIImage+UITabBarStyle */,
 				A778A57D142E5C4E004112C9 /* UIImageUITabBarStyleSampleApplication */,
 				A778A576142E5C4E004112C9 /* Frameworks */,
 				A778A574142E5C4E004112C9 /* Products */,
@@ -88,6 +92,16 @@
 				A778A585142E5C4E004112C9 /* UIImageUITabBarStyleSampleApplication-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A778A58E142E5CBB004112C9 /* UIImage+UITabBarStyle */ = {
+			isa = PBXGroup;
+			children = (
+				A778A58F142E5CD4004112C9 /* UIImage+UITabBarStyle.h */,
+				A778A590142E5CD4004112C9 /* UIImage+UITabBarStyle.m */,
+			);
+			name = "UIImage+UITabBarStyle";
+			path = "../UIImage+UITabBarStyle";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,6 +168,7 @@
 			files = (
 				A778A584142E5C4E004112C9 /* main.m in Sources */,
 				A778A588142E5C4E004112C9 /* AppDelegate.m in Sources */,
+				A778A591142E5CD4004112C9 /* UIImage+UITabBarStyle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
