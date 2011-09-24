@@ -17,13 +17,13 @@
  @abstract will return an UIImage for an unselected tabBarItem
  @return UIImage with gradient from [UIColor grayColor] to [UIColor darkGrayColor]
  */
-+ (UIImage *)tabBarStyledOverlayImageWithSize:(CGSize)size;
++ (UIImage *)unselectedTabBarOverlayImageWithSize:(CGSize)size;
 
 /**
  @abstract will return an UIImage for a selected tabBarItem
  @return UIImage with centered UITabBarItemGradient.png
  */
-+ (UIImage *)tabBarStyledOverlaySelectedImageWithSize:(CGSize)size;
++ (UIImage *)selectedTabBarOverlayImageWithSize:(CGSize)size;
 
 /**
  @return new UIImage with white color where self is transparent and black where its not
@@ -46,7 +46,7 @@
  */
 @implementation UIImage (UITabBarStyle_Private)
 
-+ (UIImage *)tabBarStyledOverlayImageWithSize:(CGSize)size {
++ (UIImage *)unselectedTabBarOverlayImageWithSize:(CGSize)size {
     // begin a new image context
     UIGraphicsBeginImageContextWithOptions(size, NO, [UIScreen mainScreen].scale);
     
@@ -75,7 +75,7 @@
     return finalBackgroundImage;
 }
 
-+ (UIImage *)tabBarStyledOverlaySelectedImageWithSize:(CGSize)size {
++ (UIImage *)selectedTabBarOverlayImageWithSize:(CGSize)size {
     // begin new image context
     UIGraphicsBeginImageContextWithOptions(size, NO, [UIScreen mainScreen].scale);
     
@@ -124,7 +124,7 @@
 }
 
 - (UIImage *)tabbarStyledImageWithSelectedState:(BOOL)selected {
-    UIImage *overlayImage = selected ? [UIImage tabBarStyledOverlaySelectedImageWithSize:self.size] : [UIImage tabBarStyledOverlayImageWithSize:self.size];
+    UIImage *overlayImage = selected ? [UIImage selectedTabBarOverlayImageWithSize:self.size] : [UIImage unselectedTabBarOverlayImageWithSize:self.size];
     
     // get our UIImage mask
     UIImage *imageMask = self.tabBarStyledImageMask;
