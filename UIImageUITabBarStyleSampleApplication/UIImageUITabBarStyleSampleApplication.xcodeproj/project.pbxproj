@@ -15,6 +15,7 @@
 		A778A588142E5C4E004112C9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A778A587142E5C4E004112C9 /* AppDelegate.m */; };
 		A778A591142E5CD4004112C9 /* UIImage+UITabBarStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = A778A590142E5CD4004112C9 /* UIImage+UITabBarStyle.m */; };
 		A778A593142E5E25004112C9 /* 145-persondot.png in Resources */ = {isa = PBXBuildFile; fileRef = A778A592142E5E25004112C9 /* 145-persondot.png */; };
+		A778A596142E5E3F004112C9 /* SampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A778A595142E5E3F004112C9 /* SampleViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,8 @@
 		A778A58F142E5CD4004112C9 /* UIImage+UITabBarStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+UITabBarStyle.h"; sourceTree = "<group>"; };
 		A778A590142E5CD4004112C9 /* UIImage+UITabBarStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+UITabBarStyle.m"; sourceTree = "<group>"; };
 		A778A592142E5E25004112C9 /* 145-persondot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "145-persondot.png"; sourceTree = "<group>"; };
+		A778A594142E5E3F004112C9 /* SampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleViewController.h; sourceTree = "<group>"; };
+		A778A595142E5E3F004112C9 /* SampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +85,8 @@
 				A778A586142E5C4E004112C9 /* AppDelegate.h */,
 				A778A587142E5C4E004112C9 /* AppDelegate.m */,
 				A778A57E142E5C4E004112C9 /* Supporting Files */,
+				A778A594142E5E3F004112C9 /* SampleViewController.h */,
+				A778A595142E5E3F004112C9 /* SampleViewController.m */,
 			);
 			path = UIImageUITabBarStyleSampleApplication;
 			sourceTree = "<group>";
@@ -173,6 +178,7 @@
 				A778A584142E5C4E004112C9 /* main.m in Sources */,
 				A778A588142E5C4E004112C9 /* AppDelegate.m in Sources */,
 				A778A591142E5CD4004112C9 /* UIImage+UITabBarStyle.m in Sources */,
+				A778A596142E5E3F004112C9 /* SampleViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +250,7 @@
 				GCC_PREFIX_HEADER = "UIImageUITabBarStyleSampleApplication/UIImageUITabBarStyleSampleApplication-Prefix.pch";
 				INFOPLIST_FILE = "UIImageUITabBarStyleSampleApplication/UIImageUITabBarStyleSampleApplication-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -255,6 +262,7 @@
 				GCC_PREFIX_HEADER = "UIImageUITabBarStyleSampleApplication/UIImageUITabBarStyleSampleApplication-Prefix.pch";
 				INFOPLIST_FILE = "UIImageUITabBarStyleSampleApplication/UIImageUITabBarStyleSampleApplication-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
